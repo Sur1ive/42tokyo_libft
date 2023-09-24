@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:14:39 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/24 20:36:34 by yxu              ###   ########.fr       */
+/*   Created: 2023/08/15 13:41:57 by yxu               #+#    #+#             */
+/*   Updated: 2023/09/24 22:13:51 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_list
+t_list	*ft_lstnew(void *content)
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+	t_list	*lst;
 
-int		ft_strlen(char *str);
-
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-
-#endif
+	lst = (t_list *)malloc(sizeof(t_list *));
+	if (lst == NULL)
+		return (NULL);
+	lst->content = content;
+	lst->next = NULL;
+	return (lst);
+}

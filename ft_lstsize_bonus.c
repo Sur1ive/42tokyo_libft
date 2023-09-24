@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:14:39 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/24 20:36:34 by yxu              ###   ########.fr       */
+/*   Created: 2023/08/15 13:41:57 by yxu               #+#    #+#             */
+/*   Updated: 2023/09/24 22:24:03 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_list
+int	ft_lstsize(t_list *lst)
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+	int	len;
 
-int		ft_strlen(char *str);
-
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-
-#endif
+	if (lst == NULL)
+		return (0);
+	len = 1;
+	while (lst->next)
+	{
+		len++;
+		lst = lst->next;
+	}
+	return (len);
+}

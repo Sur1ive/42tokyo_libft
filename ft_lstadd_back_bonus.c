@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:14:39 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/24 20:36:34 by yxu              ###   ########.fr       */
+/*   Created: 2023/08/15 13:41:57 by yxu               #+#    #+#             */
+/*   Updated: 2023/09/24 22:18:47 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_list
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+	t_list	*p;
 
-int		ft_strlen(char *str);
-
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-
-#endif
+	if (lst == NULL || new == NULL)
+		return ;
+	p = *lst;
+	while (p->next)
+		p = p->next;
+	p->next = new;
+}

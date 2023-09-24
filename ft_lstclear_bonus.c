@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:14:39 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/24 20:36:34 by yxu              ###   ########.fr       */
+/*   Created: 2023/08/15 13:41:57 by yxu               #+#    #+#             */
+/*   Updated: 2023/09/24 22:59:25 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_list
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+	t_list	*p;
 
-int		ft_strlen(char *str);
+	if (lst == NULL || *lst == NULL)
+		return ;
+	p = *lst;
+	while (p->next)
+	{
+		del(p->content);
+		p = p->next;
+		free(*lst)
+	}
+}
 
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-
-#endif

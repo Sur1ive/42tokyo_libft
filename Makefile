@@ -1,13 +1,14 @@
-SRCS	= ft_*.c
+SRCS	= $(wildcard ft_*.c)
 OBJS	= $(SRCS:.c=.o)
 NAME	= libft.a
-CC		= cc
-CFLAG	= -Wall -Wextra -Werror -c
+CC		= cc -Wall -Wextra -Werror
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 
 all: $(NAME)
+
+bonus:
 
 clean:
 	rm -rf $(OBJS)
