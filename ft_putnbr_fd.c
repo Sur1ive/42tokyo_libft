@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:14:39 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/22 15:20:06 by yxu              ###   ########.fr       */
+/*   Created: 2023/09/24 13:03:57 by yxu               #+#    #+#             */
+/*   Updated: 2023/09/24 18:35:48 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+static void	write_num(long int num, int fd)
+{
+	if (num >= 10)
+		write_num(num / 10, fd);
+	write(fd, &"0123456789"[num % 10], 1);
+}
 
-int		ft_strlen(char *str);
+void	ft_putnbr_fd(int n, int fd)
+{
+	long int	num;
 
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-
-#endif
+	num = n;
+	if (num < 0)
+	{
+		write(fd, "-", 1);
+		num = -num;
+	}
+	write_num(num, fd);
+}

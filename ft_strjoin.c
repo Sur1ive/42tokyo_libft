@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:14:39 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/22 15:20:06 by yxu              ###   ########.fr       */
+/*   Created: 2023/08/21 13:56:56 by yxu               #+#    #+#             */
+/*   Updated: 2023/09/22 14:33:43 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*str;
+	char	*start;
 
-int		ft_strlen(char *str);
-
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-
-#endif
+	str = (char *)malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
+	start = str;
+	if (str == NULL)
+		return (NULL);
+	while (*s1 != '\0')
+		*str++ = *s1++;
+	while (*s2 != '\0')
+		*str++ = *s2++;
+	*str = '\0';
+	return (start);
+}

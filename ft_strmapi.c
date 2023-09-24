@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:14:39 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/22 15:20:06 by yxu              ###   ########.fr       */
+/*   Created: 2023/08/21 17:12:33 by yxu               #+#    #+#             */
+/*   Updated: 2023/09/24 16:33:13 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char	*str;
+	int		len;
 
-int		ft_strlen(char *str);
-
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-
-#endif
+	len = ft_strlen((char *)s);
+	str = (char *)malloc(len + 1);
+	str[len] = '\0';
+	while (len-- > 0)
+		str[len] = f(len, s[len]);
+	return (str);
+}
