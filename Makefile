@@ -12,7 +12,7 @@ SRCS_B	= ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c\
 OBJS	= $(SRCS:.c=.o)
 OBJS_B	= $(SRCS_B:.c=.o)
 NAME	= libft.a
-CC		= cc -Wall -Wextra -Werror
+CC		= gcc -Wall -Wextra -Werror
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
