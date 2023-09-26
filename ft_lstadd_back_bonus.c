@@ -6,7 +6,7 @@
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 13:41:57 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/24 22:18:47 by yxu              ###   ########.fr       */
+/*   Updated: 2023/09/26 15:46:20 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 	if (lst == NULL || new == NULL)
 		return ;
-	p = *lst;
-	while (p->next)
-		p = p->next;
-	p->next = new;
+	if (*lst)
+	{
+		p = *lst;
+		while (p->next)
+			p = p->next;
+		p->next = new;
+	}
+	else
+		*lst = new;
 }

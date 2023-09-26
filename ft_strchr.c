@@ -6,7 +6,7 @@
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 13:41:57 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/20 19:03:07 by yxu              ###   ########.fr       */
+/*   Updated: 2023/09/26 15:22:14 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
-		if (*s++ == c)
+		if (*s++ == (unsigned char)c)
 			return ((char *)--s);
-	if (*s == c)
+	if (*s == (unsigned char)c)
 		return ((char *)s);
 	return (NULL);
 }

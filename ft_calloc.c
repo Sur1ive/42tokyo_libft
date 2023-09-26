@@ -6,7 +6,7 @@
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 20:23:24 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/20 20:52:21 by yxu              ###   ########.fr       */
+/*   Updated: 2023/09/26 16:45:06 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*mem;
-	size_t	i;
 
+	if (size != 0 && count > SIZE_MAX / size)
+		return (NULL);
 	mem = (void *)malloc(size * count);
 	if (mem == NULL)
+	{
+		free(mem);
 		return (NULL);
-	i = 0;
-	while (i < size * count)
-		((unsigned char *)mem)[i++] = 0;
+	}
+	ft_bzero(mem, size * count);
 	return (mem);
 }
