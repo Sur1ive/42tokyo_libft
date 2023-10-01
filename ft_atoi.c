@@ -6,14 +6,16 @@
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 15:21:15 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/20 20:22:29 by yxu              ###   ########.fr       */
+/*   Updated: 2023/10/01 23:15:03 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_atoi(const char *str)
 {
-	int	num;
-	int	sign;
+	unsigned long long	num;
+	int					sign;
 
 	num = 0;
 	sign = 1;
@@ -31,5 +33,17 @@ int	ft_atoi(const char *str)
 		num += *str - '0';
 		str++;
 	}
+	if (num < (unsigned long long)LONG_MIN)
+		num = LONG_MIN;
+	else if (num >= (unsigned long long)LONG_MAX)
+		num = LONG_MAX;
 	return (num * sign);
 }
+
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main()
+// {
+// 	printf("origin: %d\n", atoi("  \t  -922337203685477580900"));
+// 	printf("ft: %d\n", ft_atoi("  \t  -922337203685477580900"));
+// }

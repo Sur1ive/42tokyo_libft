@@ -6,7 +6,7 @@
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:12:33 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/22 15:23:23 by yxu              ###   ########.fr       */
+/*   Updated: 2023/10/01 20:00:30 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static int	count_words(char *str, char c)
 	int	num_of_words;
 	int	len;
 
+	if (str == NULL)
+		return (0);
 	len = 0;
 	num_of_words = 0;
 	while (str[len] != '\0')

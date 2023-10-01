@@ -6,7 +6,7 @@
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 13:56:56 by yxu               #+#    #+#             */
-/*   Updated: 2023/09/22 14:33:43 by yxu              ###   ########.fr       */
+/*   Updated: 2023/10/01 19:57:38 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*str;
 	char	*start;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	str = (char *)malloc(ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
 	start = str;
 	if (str == NULL)

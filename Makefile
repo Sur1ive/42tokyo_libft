@@ -14,13 +14,13 @@ OBJS_B	= $(SRCS_B:.c=.o)
 NAME	= libft.a
 CC		= cc -Wall -Wextra -Werror
 
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(if $(BONUS), $(OBJS_B))
+	ar rc $(NAME) $(OBJS) $(if $(BONUS), $(OBJS_B))
 
 all: $(NAME)
 
-bonus: $(OBJS_B)
-	ar rc $(NAME) $(OBJS_B)
+bonus:
+	@make BONUS=true
 
 clean:
 	rm -rf $(OBJS) $(OBJS_B)
