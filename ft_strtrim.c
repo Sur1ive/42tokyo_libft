@@ -6,7 +6,7 @@
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 13:56:56 by yxu               #+#    #+#             */
-/*   Updated: 2023/10/01 21:31:44 by yxu              ###   ########.fr       */
+/*   Updated: 2023/10/03 18:52:10 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	begin = trim_begin(s1, set);
 	end = trim_end(s1, set);
 	if (end < begin)
-		return ("");
+		return (ft_substr(s1, begin, 0));
 	return (ft_substr(s1, begin, end - begin));
 }
