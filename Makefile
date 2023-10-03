@@ -6,9 +6,9 @@ SRCS	= ft_isdigit.c ft_memset.c ft_striteri.c ft_strrchr.c\
 		ft_isalnum.c ft_memcmp.c ft_split.c ft_strmapi.c\
 		ft_isalpha.c ft_memcpy.c ft_strchr.c ft_strncmp.c\
 		ft_isascii.c  ft_memmove.c ft_strdup.c ft_strnstr.c
-SRCS_B	= ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c\
-		ft_lstadd_back_bonus.c ft_lstsize_bonus.c ft_lstadd_front_bonus.c\
-		ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstiter_bonus.c
+SRCS_B	= ft_lstlast.c ft_lstmap.c ft_lstnew.c\
+		ft_lstadd_back.c ft_lstsize.c ft_lstadd_front.c\
+		ft_lstclear.c ft_lstdelone.c ft_lstiter.c
 OBJS	= $(SRCS:.c=.o)
 OBJS_B	= $(SRCS_B:.c=.o)
 NAME	= libft.a
