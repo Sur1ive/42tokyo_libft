@@ -6,7 +6,7 @@
 /*   By: yxu <yxu@student.42tokyo.jp>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:12:33 by yxu               #+#    #+#             */
-/*   Updated: 2023/10/01 20:00:30 by yxu              ###   ########.fr       */
+/*   Updated: 2023/10/03 17:09:06 by yxu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,40 @@ static void	ft_split_sub(char **splited, char *str, char c)
 	splited[j] = NULL;
 }
 
+static void	freepp(char **pp, int i)
+{
+	int	j;
+
+	j = 0;
+	while (j < i)
+		free(pp[j++]);
+	free(pp);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**splited;
 	int		num_of_words;
+	int		i;
+	int		j;
 
+	if (s == NULL)
+		return (NULL);
 	num_of_words = count_words((char *)s, c);
 	splited = (char **)malloc((num_of_words + 1) * sizeof(char *));
 	if (splited == NULL)
 		return (NULL);
 	ft_split_sub(splited, (char *)s, c);
-	while (num_of_words > 0)
+	i = 0;
+	j = 0;
+	while (i < num_of_words)
 	{
-		if (splited[num_of_words-- - 1] == NULL)
+		if (splited[i] == NULL)
+		{
+			freepp(splited, i);
 			return (NULL);
+		}
+		i++;
 	}
 	return (splited);
 }
