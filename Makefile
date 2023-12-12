@@ -16,6 +16,7 @@ CC		= cc -Wall -Wextra -Werror
 
 $(NAME): $(OBJS) $(if $(BONUS), $(OBJS_B))
 	ar rc $(NAME) $(OBJS) $(if $(BONUS), $(OBJS_B))
+	ranlib $(NAME)
 
 all: $(NAME)
 
